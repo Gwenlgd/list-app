@@ -1,0 +1,9 @@
+<h1>All lists</h1>
+
+<%# Besoin ? ou dashboard %>
+
+<% @lists.each do |list| %>
+  <%=  @list.list_name %>
+  <%=  @list.description %>
+  <%=  @list.end_date %>
+<% end %>
