@@ -4,17 +4,41 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :surname,
                 required: true,
                 autofocus: true,
+                placeholder: "Surname",
+                label: false,
+                input_html: { autocomplete: "surname" }%>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                placeholder: "First name",
+                label: false,
+                input_html: { autocomplete: "first name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                label: false,
+                placeholder: "Last name",
+                input_html: { autocomplete: "last name" }%>
+<%= f.input :email,
+                required: true,
+                autofocus: true,
+                label: false,
+                placeholder: "Email",
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                label: false,
+                placeholder: "Password",
+                input_html: { autocomplete: "password" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                label: false,
+                placeholder: "Confirm password",
+                input_html: { autocomplete: "password confirmation" } %>
+
   </div>
 
   <div class="form-actions">

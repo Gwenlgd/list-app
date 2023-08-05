@@ -11,4 +11,4 @@ User.destroy_all
 
 puts "Creating users..."
 
-gwen = {surname: "Gwenlgd", first_name: "Gwen", last_name: "Leg", address: "Paris", email: "gwenlgd@paradise.com", password: "paradise"}
+gwen = User.create!(surname: "Gwenlgd", first_name: "Gwen", last_name: "Leg", address: "Paris", email: "gwenlgd@paradise.com", password: "paradise")
