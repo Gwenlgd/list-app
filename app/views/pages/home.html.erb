@@ -1,4 +1,15 @@
-<h1>hello</h1>
 
 
-<%= link_to "Add A New List", new_list_path %>
+    <% if current_user %>
+     <h1>Hello <%= current_user.surname %></h1>
+
+    <%= button_to "Sign out", destroy_user_session_path , method: :delete  %>
+     <br> <br>
+    <h2> Your lists </h2>
+    <br>
+    <h2> Lists shared with you</h2>
+    <% else %>
+    <h1>Hello please sign in or join us</h1>
+      <%= link_to "Sign in", new_user_session_path%>
+      <%= link_to "Not a member yet ? Join for free!", new_user_registration_path%>
+    <% end %>
