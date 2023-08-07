@@ -1,5 +1,6 @@
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name_list %>
+  <%= f.input :list_category, collection: ["Birthday", "Wedding", "Christmas", "Other"] %>
   <%= f.input :description %>
   <%= f.button :submit, class:"btn-date-new" %>
 <% end %>
