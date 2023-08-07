@@ -1,0 +1,17 @@
+
+<h2>Your lists</h2>
+<% @lists_user.each do |list| %>
+    <%= link_to list_path(list) do %>
+    <h3><%= list.name_list %></h3>
+    <% end %>
+<% end %>
+
+
+<h2>All lists</h2>
+<% @lists.each do |list| %>
+    <%= link_to list_path(list) do %>
+    <h3><%= list.name_list %></h3>
+    <% end %>
+<% end %>
+
+<%= link_to "Back Home", root_path %>

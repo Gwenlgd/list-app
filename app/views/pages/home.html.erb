@@ -8,6 +8,9 @@
      <br> <br>
     <h2> Your lists </h2>
     <br>
+    <%= link_to "See all your lists", lists_path %>
+    <%= link_to "Create a new list", new_list_path %>
+    <br>
     <h2> Lists shared with you</h2>
     <% else %>
     <h1>Hello please sign in or join us</h1>
