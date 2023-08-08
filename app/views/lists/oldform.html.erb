@@ -1,0 +1,21 @@
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name_list %>
+  <%= f.input :list_category, collection: ["Birthday", "Wedding", "Christmas", "Other"] %>
+  <%= f.input :description %>
+  <%= f.button :submit, class:"btn-date-new" %>
+<% end %>
+
+
+<h1>New List</h1>
+<%= form_for @list do |f| %>
+  <% @items.each_with_index do |item, i| %>
+    <%= f.fields_for :list_items, ListItem.new, child_index: i do |list_item_form| %>
+      <p>
+        <%= list_item_form.check_box :item_id, {}, item.id, "" %> <%= item.name %>
+      </p>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.submit 'Create List' %>
+  </p>
+<% end %>

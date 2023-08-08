@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_07_140606) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_08_080746) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name_item"
     t.string "item_description"
-    t.string "quantity"
     t.string "price"
     t.string "item_category"
+    t.integer "quantity"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -32,6 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_140606) do
     t.bigint "user_id"
     t.string "list_category"
     t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "list_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_reports_on_item_id"
+    t.index ["list_id"], name: "index_reports_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_07_140606) do
   end
 
   add_foreign_key "lists", "users"
+  add_foreign_key "reports", "items"
+  add_foreign_key "reports", "lists"
 end

@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @lists_user = current_user.lists
+    @other_lists = @lists.where.not(user_id: current_user)
   end
 
   def show
@@ -16,8 +17,11 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user_id = current_user.id
-    @list.save
-    redirect_to list_path(@list)
+    if @list.save
+      redirect_to list_path(@list)
+    else
+      redirect_to lists_path
+    end
   end
 
   def edit
@@ -42,7 +46,15 @@ class ListsController < ApplicationController
     params.require(:list).permit(:name_list, :description, :list_category)
   end
 
+  def item_params
+    params.require(:item).permit(:name_item, :item_description, :price, :item_category, :quantity)
+  end
+
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def allowed_params
+    params.require(:list).permit(list_items_attributes: [:item_id])
   end
 end

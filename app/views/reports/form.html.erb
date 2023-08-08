@@ -1,0 +1,8 @@
+<%= simple_form_for(@reports) do |f| %>
+  <%= f.input :name_item %>
+  <%= f.input :item_description %>
+  <%= f.input :quantity %>
+  <%= f.input :price %>
+  <%= f.input :item_category, collection: ["Home", "Clothes", "Toys", "Other"] %>
+  <%= f.button :submit, class:"btn-date-new" %>
+<% end %>
