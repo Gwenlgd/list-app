@@ -1,0 +1,21 @@
+<h2>Your item</h2>
+<br><br>
+
+  <p>Name : <%= @item.name_item %></p>
+  <p>Category : <%= @item.item_category %></p>
+  <p>Description : <%= @item.item_description %></p>
+  <p>Quantity : <%= @item.quantity %></p>
+  <p>Price: <%= @item.price%> euros </p>
+
+  <br>
+    <%= link_to "Edit", edit_item_path(@item) %>
+  <br>
+
+    <%= link_to "Delete",
+        item_path(@item),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+
+  <br>
+
+    <%= link_to "Back to the list", items_path %>

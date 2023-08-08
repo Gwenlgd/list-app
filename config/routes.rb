@@ -9,5 +9,15 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :lists
   resources :items
+  resources :reports
+
+
+  resources :lists, except: [:index] do
+    resources :report
+  end
+
+  resources :reports do
+    resources :items
+  end
 
 end

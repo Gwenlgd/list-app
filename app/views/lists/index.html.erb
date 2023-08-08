@@ -3,14 +3,17 @@
 <% @lists_user.each do |list| %>
     <%= link_to list_path(list) do %>
     <h3><%= list.name_list %></h3>
+    <p><%= list.user.username %></p>
+
     <% end %>
 <% end %>
 
 
 <h2>All lists</h2>
-<% @lists.each do |list| %>
+<% @other_lists.each do |list| %>
     <%= link_to list_path(list) do %>
     <h3><%= list.name_list %></h3>
+    <p><%= list.user.username %></p>
     <% end %>
 <% end %>
 
